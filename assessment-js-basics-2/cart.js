@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,30 +18,25 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
 //CODE HERE
 
-const total = Object.values(cart).reduce(function (total, pair)){
-    const [key, value] = pair; 
-    return total + value.value; 
-}
-
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((acc, el) => {
+  return acc + el.price;
+}, 0);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -61,7 +55,12 @@ const total = Object.values(cart).reduce(function (total, pair)){
 
 //CODE HERE
 
+const calcFinalPrice = (cartTotal, coupon, tax) => {
+  return (finalTotal = (total - coupon) * (1 + tax));
+  return finalTotal;
+};
 
+console.log(calcFinalPrice(10, 2, 06)
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -84,13 +83,22 @@ const total = Object.values(cart).reduce(function (total, pair)){
 */
 
 /*
-    TEXT ANSWER HERE
 
 */
-
-/*
-    Now, create a customer object following your own
-    guidelines.
-*/
+//             firstName (string)
+//             lastName (string)
+//             phone number (string)
+//             creditCard (number)
+// /*
+    // Now, create a customer object following your own
+    // guidelines.
+// */
 
 //CODE HERE
+
+const customer = {
+    firstName = "Scott"
+    lastName = "Sutherland"
+    phone = "631-949-2013"
+    creditcardNum: 0000000000000000
+}

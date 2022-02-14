@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -32,17 +31,14 @@
 
 //CODE HERE
 
-let pizza = {
-    name: "test",
-    price: 6,
-    category: "test3",
-    popularity: 7, 
-    rating: 54, 
-    tags: ["test", "test2", "test3"]
-}
-
-
-
+const pizza = {
+  name: "test",
+  price: 6,
+  category: "entree",
+  popularity: 7,
+  rating: 54,
+  tags: ["test", "test2", "test3"],
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -54,7 +50,7 @@ let pizza = {
 
 //CODE HERE
 
-console.log(pizza.popularity)
+console.log(pizza.popularity);
 /*
     Second, log the second tag in your pizza's
     tags array.
@@ -74,9 +70,9 @@ console.log(pizza.tags[2]);
 
 //CODE HERE
 
-let newPrice = pizza.price;
-console.log(newPrice)
+const { price } = pizza;
 
+console.log(price);
 
 /*
     Fourth, and last, destructure the category
@@ -86,8 +82,8 @@ console.log(newPrice)
 */
 
 //CODE HERE
-let newCategory = pizza.category;
-console.log(newCategory)
+const { category } = pizza;
+console.log(category);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -104,14 +100,45 @@ console.log(newCategory)
 //CODE HERE
 
 let foodArr = {
+  name: "Caesar Salad ",
+  price: 4,
+  category: "Salad",
+  popularity: 5,
+  rating: 87,
+  tags: ["Salad", "Healthy", "Vegetarian"],
+}, 
+{
     name: "taco",
+    price: 9,
+    category: "Mexican",
+    popularity: 8,
+    rating: 87,
+    tags: ["Spicy", "Cheesy", "Beans"],
+  },
+  {
+    name: "Pizza",
+    price: 7,
+    category: "Italian",
+    popularity: 3,
+    rating: 34,
+    tags: ["Popular", "Toppings", "Bread"],
+  },
+  {
+    name: "Chicken Tikka Massala",
     price: 4,
-    category: "test3fds",
-    popularity: 3, 
-    rating: 52, 
-    tags: ["test12", "test23", "test33"]
-}
-
+    category: "Indian",
+    popularity: 6,
+    rating: 78,
+    tags: ["Spicy", "Rice", "Indian"],
+  },
+  {
+    name: "Burrito",
+    price: 8,
+    category: "Mexican",
+    popularity: 5,
+    rating: 89,
+    tags: ["Mexican", "Spicy", "Beans"],
+  }
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -127,12 +154,12 @@ let foodArr = {
 
 //CODE HERE
 
-// const filter = foodArr.filter(function(elem) {
-//     return elem.tags === "test33"
+const filterFood = foodArr.filter(meals => meals.tags.includes('Spicy'))
 
-// })
+console.log(filterFood)
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+
+
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -173,7 +200,19 @@ let foodArr = {
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+
+const filterByProperty = (property, number, type) => {
+    const filterArray = foodArr.filter(meal => { 
+        if(type === 'above' ){
+            return meal[property] > number
+        } else if (type === 'below'){
+            return meal[property] < number 
+        }
+    })
+    return filterArray
+}
+
+
 
 
 /*
@@ -184,3 +223,10 @@ let foodArr = {
 */
 
 //CODE HERE
+
+
+
+console.log(filterByProperty(price, 7, 'below')
+
+
+

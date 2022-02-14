@@ -22,8 +22,8 @@
 
 //CODE HERE
 
-let greetUser = (username) => {
-  console.log("Welcome back, " + username);
+const greetUser = (username) => {
+  return `Welcome back ${username}`;
 };
 
 greetUser("Siddharth");
@@ -48,25 +48,17 @@ greetUser("Siddharth");
         // `You're in our delivery zone!`
 */
 
-// const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206];
+const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206];
 
 // //CODE HERE
 
-// const delivery = (arr, name, cb) => {
-//   if (arr.includes(name) === true) {
-//     cb(true);
-//   } else {
-//     cb(false);
-//   }
-// };
-
-// delivery(deliveryAreaZipCodes, 852505, (result) => {
-//   if (result === true) {
-//     console.log("You're in our delivery zone!");
-//   } else {
-//     console.log("Sorry, we can't deliver to that address");
-//   }
-// });
+const canWeDeliver = (zipCode) => {
+  if (deliveryAreaZipCodes.includes(zipCode)) {
+    return "You're in our delivery zone";
+  } else {
+    return "Sorry we cant deliver to that address";
+  }
+};
 
 /* 
     Problem 2 Continued
@@ -87,30 +79,17 @@ greetUser("Siddharth");
 
 // CODE HERE
 
-const deliveryAreaZipCodes2 = [85205, 85204, 85203, 85213, 85206]
+const deliveryAreaZipCodes2 = [85205, 85204, 85203, 85213, 85206];
 
-let canWeDeliverTwo = (array, zipCode, cb) => {
-    for(i=0; i > array; i++){
-    if(array[i] === zipCode){
-    cb(true)
-    }else {
-        cb(false)
+const canWeDeliverTwo = (zipCode) => {
+  let message = "Sorry, we can't deliver to that address";
+  deliveryAreaZipCodes2.forEach((zip) => {
+    if (zipCode === zip) {
+      message = "you're in our deliver zone";
     }
-}}
-
-
-    canWeDeliverTwo(deliveryAreaZipCodes2, 85205 , cb => {
-        if(cb === true){
-            console.log("You're in our delivery zone!")
-        }
-        else{
-            console.log("Sorry, we can't deliver to that address")
-        }
-    }
-
-    )
-
-
+  });
+  return message;
+};
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -136,10 +115,6 @@ const deals = [
   },
 ];
 
-
-let deals2 =  (deals[0].title).replace("15% off", "10% off")
-console.log(deals2)
-
 /*
     The owner has decided to take the 15% off
     deal down to 10%.
@@ -151,9 +126,8 @@ console.log(deals2)
 
 //CODE HERE
 
-
-
-
+let deals2 = deals[0].title.replace("15% off", "10% off");
+console.log(deals2);
 
 /*
     The restaurant is going to continue its
@@ -169,3 +143,5 @@ console.log(deals2)
 */
 
 //CODE HERE
+
+deals[1].description = deals[1].desc.replace("March", "April").trim;
